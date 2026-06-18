@@ -3,137 +3,265 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home Locally – Coming Soon</title>
+  <title>Home Locally – Find Local Home Service Pros</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:  #1a3c34;
+      --gold:   #c8a96e;
+      --light:  #f7f4ef;
+      --mid:    #e8e2d9;
+      --text:   #2c2c2c;
+      --muted:  #6b6b6b;
+    }
 
     body {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      background: var(--light);
+      font-family: 'Georgia', serif;
+      color: var(--text);
+    }
+
+    header {
+      background: var(--green);
+      padding: 1.4rem 2rem;
+      display: flex;
       align-items: center;
       justify-content: center;
-      background: #f7f4ef;
-      font-family: 'Georgia', serif;
-      color: #2c2c2c;
+    }
+
+    .logo { font-size: 1.9rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+    .logo span { color: var(--gold); }
+
+    .hero {
+      background: var(--green);
+      color: #fff;
       text-align: center;
-      padding: 2rem;
+      padding: 4rem 2rem 5rem;
     }
 
-    .logo {
-      font-size: 2.8rem;
+    .hero h1 {
+      font-size: 2.6rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
-      color: #1a3c34;
-      margin-bottom: 0.4rem;
+      line-height: 1.2;
+      max-width: 640px;
+      margin: 0 auto 1.2rem;
     }
 
-    .logo span {
-      color: #c8a96e;
-    }
-
-    .tagline {
+    .hero p {
       font-size: 1.05rem;
-      color: #6b6b6b;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 3rem;
-    }
-
-    .coming-soon {
-      font-size: 3.8rem;
-      font-weight: 700;
-      color: #1a3c34;
-      line-height: 1.1;
-      margin-bottom: 1.2rem;
-    }
-
-    .description {
-      max-width: 480px;
-      font-size: 1.1rem;
       line-height: 1.8;
-      color: #555;
-      margin-bottom: 3rem;
+      max-width: 580px;
+      margin: 0 auto 1.2rem;
+      color: rgba(255,255,255,0.85);
     }
 
-    .divider {
-      width: 60px;
-      height: 3px;
-      background: #c8a96e;
-      margin: 0 auto 3rem;
-      border-radius: 2px;
+    .badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--green);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.45rem 1.2rem;
+      border-radius: 2rem;
+      margin-bottom: 1.6rem;
     }
 
-    .notify-form {
+    .how { background: #fff; padding: 4rem 2rem; text-align: center; }
+    .how h2 { font-size: 1.7rem; color: var(--green); margin-bottom: 0.6rem; }
+    .how .sub { font-size: 1rem; color: var(--muted); margin-bottom: 3rem; font-style: italic; }
+
+    .steps {
       display: flex;
-      gap: 0.6rem;
       flex-wrap: wrap;
+      gap: 2rem;
       justify-content: center;
-      margin-bottom: 2.5rem;
+      max-width: 900px;
+      margin: 0 auto;
     }
+
+    .step { flex: 1 1 220px; max-width: 260px; text-align: center; }
+
+    .step-num {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #fff;
+      font-size: 1.3rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+
+    .step h3 { font-size: 1rem; color: var(--green); margin-bottom: 0.5rem; }
+    .step p { font-size: 0.92rem; color: var(--muted); line-height: 1.7; }
+
+    .services { background: var(--light); padding: 4rem 2rem; text-align: center; }
+    .services h2 { font-size: 1.7rem; color: var(--green); margin-bottom: 0.6rem; }
+    .services .sub { font-size: 1rem; color: var(--muted); margin-bottom: 2.5rem; font-style: italic; }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      justify-content: center;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .tag {
+      background: #fff;
+      border: 1.5px solid var(--mid);
+      color: var(--green);
+      padding: 0.45rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.9rem;
+    }
+
+    .notify { background: var(--green); color: #fff; text-align: center; padding: 4rem 2rem; }
+    .notify h2 { font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .notify p { font-size: 1rem; color: rgba(255,255,255,0.8); margin-bottom: 2rem; }
+
+    .notify-form { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
 
     .notify-form input[type="email"] {
       padding: 0.75rem 1.2rem;
-      border: 1.5px solid #c8a96e;
+      border: none;
       border-radius: 4px;
       font-size: 1rem;
-      width: 280px;
+      width: 300px;
       outline: none;
-      background: #fff;
-      color: #2c2c2c;
       font-family: inherit;
+      color: var(--text);
     }
 
     .notify-form input[type="email"]::placeholder { color: #aaa; }
 
     .notify-form button {
       padding: 0.75rem 1.6rem;
-      background: #1a3c34;
-      color: #fff;
+      background: var(--gold);
+      color: var(--green);
       border: none;
       border-radius: 4px;
       font-size: 1rem;
+      font-weight: 700;
       cursor: pointer;
       font-family: inherit;
-      letter-spacing: 0.04em;
-      transition: background 0.2s;
+      transition: opacity 0.2s;
     }
 
-    .notify-form button:hover { background: #c8a96e; }
+    .notify-form button:hover { opacity: 0.88; }
 
     footer {
+      background: #111;
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      padding: 1.6rem 2rem;
+      font-size: 0.8rem;
+      line-height: 1.8;
       margin-top: auto;
-      padding-top: 2rem;
-      font-size: 0.82rem;
-      color: #aaa;
     }
 
-    @media (max-width: 480px) {
-      .coming-soon { font-size: 2.6rem; }
-      .logo { font-size: 2rem; }
+    .divider {
+      width: 50px; height: 3px;
+      background: var(--gold);
+      margin: 0 auto 2.5rem;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 520px) {
+      .hero h1 { font-size: 1.9rem; }
+      .notify-form input[type="email"] { width: 100%; }
+      .notify-form button { width: 100%; }
     }
   </style>
 </head>
 <body>
 
-  <div class="logo">Home<span>Locally</span></div>
-  <p class="tagline">Find your perfect home, close to home</p>
+  <header>
+    <div class="logo">Home<span>Locally</span></div>
+  </header>
 
-  <h1 class="coming-soon">Coming Soon</h1>
-  <div class="divider"></div>
+  <section class="hero">
+    <div class="badge">Launching Soon</div>
+    <h1>Find local home service pros for every job around the house.</h1>
+    <p>
+      Home Locally is launching soon to help homeowners connect with local service
+      professionals for home projects, maintenance, improvements and everyday property needs.
+    </p>
+    <p>
+      Whether you need help with plumbing, heating, electrical work, roofing, drainage,
+      landscaping, cleaning, decorating, or general home services, Home Locally will make
+      it simple to find the right local provider.
+    </p>
+  </section>
 
-  <p class="description">
-    We're working hard to bring you a smarter, simpler way to find
-    properties in your local area. Stay tuned — something great is on its way.
-  </p>
+  <section class="how">
+    <h2>Home services, locally matched.</h2>
+    <p class="sub">Simple. Fast. Local.</p>
+    <div class="divider"></div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Tell us what you need.</h3>
+        <p>Describe your home service requirement and your location in a few simple steps.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>We match your enquiry.</h3>
+        <p>We match your enquiry with suitable local home service providers in your area.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>You choose who to work with.</h3>
+        <p>Compare your options and choose the provider that is right for you.</p>
+      </div>
+    </div>
+  </section>
 
-  <form class="notify-form" onsubmit="handleSubmit(event)">
-    <input type="email" placeholder="Enter your email address" required />
-    <button type="submit">Notify Me</button>
-  </form>
+  <section class="services">
+    <h2>Every job around the house</h2>
+    <p class="sub">From one-off repairs to ongoing maintenance</p>
+    <div class="divider"></div>
+    <div class="tags">
+      <span class="tag">Plumbing</span>
+      <span class="tag">Heating</span>
+      <span class="tag">Electrical</span>
+      <span class="tag">Roofing</span>
+      <span class="tag">Drainage</span>
+      <span class="tag">Landscaping</span>
+      <span class="tag">Cleaning</span>
+      <span class="tag">Decorating</span>
+      <span class="tag">General Home Services</span>
+      <span class="tag">Maintenance</span>
+      <span class="tag">Home Improvements</span>
+      <span class="tag">Property Needs</span>
+    </div>
+  </section>
+
+  <section class="notify">
+    <h2>Be the first to know.</h2>
+    <p>Enter your email and we will let you know when Home Locally launches in your area.</p>
+    <form class="notify-form" onsubmit="handleSubmit(event)">
+      <input type="email" placeholder="Enter your email address" required />
+      <button type="submit">Notify Me</button>
+    </form>
+  </section>
 
   <footer>
-    &copy; 2026 HomeLocally.com &nbsp;&middot;&nbsp; All rights reserved.
+    <p>&copy; Home Locally. All rights reserved.</p>
+    <p style="margin-top:0.6rem; max-width:640px; margin-left:auto; margin-right:auto;">
+      Home Locally connects homeowners with independent local service providers.
+      Service providers are not employees of Home Locally. Availability, pricing,
+      licensing, insurance, and service terms may vary by provider and location.
+    </p>
   </footer>
 
   <script>
@@ -141,7 +269,6 @@
       e.preventDefault();
       const btn = e.target.querySelector('button');
       btn.textContent = 'Thank you!';
-      btn.style.background = '#c8a96e';
       e.target.querySelector('input').disabled = true;
       btn.disabled = true;
     }
