@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Locally – Coming Soon</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #f7f4ef;
+      font-family: 'Georgia', serif;
+      color: #2c2c2c;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .logo {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #1a3c34;
+      margin-bottom: 0.4rem;
+    }
+
+    .logo span {
+      color: #c8a96e;
+    }
+
+    .tagline {
+      font-size: 1.05rem;
+      color: #6b6b6b;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
+
+    .coming-soon {
+      font-size: 3.8rem;
+      font-weight: 700;
+      color: #1a3c34;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+
+    .description {
+      max-width: 480px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 3rem;
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: #c8a96e;
+      margin: 0 auto 3rem;
+      border-radius: 2px;
+    }
+
+    .notify-form {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .notify-form input[type="email"] {
+      padding: 0.75rem 1.2rem;
+      border: 1.5px solid #c8a96e;
+      border-radius: 4px;
+      font-size: 1rem;
+      width: 280px;
+      outline: none;
+      background: #fff;
+      color: #2c2c2c;
+      font-family: inherit;
+    }
+
+    .notify-form input[type="email"]::placeholder { color: #aaa; }
+
+    .notify-form button {
+      padding: 0.75rem 1.6rem;
+      background: #1a3c34;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-family: inherit;
+      letter-spacing: 0.04em;
+      transition: background 0.2s;
+    }
+
+    .notify-form button:hover { background: #c8a96e; }
+
+    footer {
+      margin-top: auto;
+      padding-top: 2rem;
+      font-size: 0.82rem;
+      color: #aaa;
+    }
+
+    @media (max-width: 480px) {
+      .coming-soon { font-size: 2.6rem; }
+      .logo { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo">Home<span>Locally</span></div>
+  <p class="tagline">Find your perfect home, close to home</p>
+
+  <h1 class="coming-soon">Coming Soon</h1>
+  <div class="divider"></div>
+
+  <p class="description">
+    We're working hard to bring you a smarter, simpler way to find
+    properties in your local area. Stay tuned — something great is on its way.
+  </p>
+
+  <form class="notify-form" onsubmit="handleSubmit(event)">
+    <input type="email" placeholder="Enter your email address" required />
+    <button type="submit">Notify Me</button>
+  </form>
+
+  <footer>
+    &copy; 2026 HomeLocally.com &nbsp;&middot;&nbsp; All rights reserved.
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      btn.textContent = 'Thank you!';
+      btn.style.background = '#c8a96e';
+      e.target.querySelector('input').disabled = true;
+      btn.disabled = true;
+    }
+  </script>
+
+</body>
+</html>
